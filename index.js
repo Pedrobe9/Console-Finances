@@ -113,3 +113,27 @@ let profitChangeTotal = 0;
 for (let i = 0; i < finances.length; i++) {
     profitChangeTotal += profitMonthChange[i];
 }
+
+
+// avarage of total change in profit:
+let profitChangeAverage = 0;
+profitChangeAverage = profitChangeTotal / finances.length;
+console.log("Average of total change in profits from month to month: " + profitChangeAverage.toFixed(2));
+// Calculate greatest increase in profits (date and amount) over the entire period.
+let max = profitMonthChange[1];
+let min = profitMonthChange[1];
+let maxIndex = 0;
+let minIndex = 0;
+for (let i = 1; i < finances.length; i++) {
+    if (profitMonthChange[i] > max) {
+        max = profitMonthChange[i];
+        maxIndex = i;
+    }
+    // Calculate greatest decrease in profits (date and amount) over the entire period.
+    if (profitMonthChange[i] < min) {
+        min = profitMonthChange[i];
+        minIndex = i;
+    }
+}
+console.log("greatest increase in profits: " + finances[maxIndex][0] + " (" + max + ")");
+console.log("greatest decrease in profits: " + finances[minIndex][0] + " (" + min + ")");
