@@ -90,6 +90,8 @@ var finances = [
 // Calculate total number of months included in the dataset.
 // Create variable for total number of months:
 let numberMonths = finances.length;
+console.log("Financial Analysis");
+console.log("----------------------------");
 console.log("Total number of months: " + numberMonths);
 
 // Calculate net total amount of Profit/Losses over the entire period.
@@ -98,7 +100,7 @@ let profitTotal = 0;
 for (let i = 0; i < finances.length; i++) {
     profitTotal += finances[i][1];
 }
-console.log("Total amount of Profit/Losses is: " + profitTotal);
+console.log("Total amount of Profit/Losses is: $" + profitTotal);
 
 // calculate average of the changes in Profit/Losses over the entire period.
 // total change in profits are from month to month
@@ -118,7 +120,7 @@ for (let i = 0; i < finances.length; i++) {
 // avarage of total change in profit:
 let profitChangeAverage = 0;
 profitChangeAverage = profitChangeTotal / finances.length;
-console.log("Average of total change in profits from month to month: " + profitChangeAverage.toFixed(2));
+console.log("Average of total change in profits from month to month: $" + profitChangeAverage.toFixed(2));
 // Calculate greatest increase in profits (date and amount) over the entire period.
 let max = profitMonthChange[1];
 let min = profitMonthChange[1];
@@ -135,5 +137,5 @@ for (let i = 1; i < finances.length; i++) {
         minIndex = i;
     }
 }
-console.log("greatest increase in profits: " + finances[maxIndex][0] + " (" + max + ")");
-console.log("greatest decrease in profits: " + finances[minIndex][0] + " (" + min + ")");
+console.log("greatest increase in profits: " + finances[maxIndex][0] + " ($" + max + ")");
+console.log("greatest decrease in profits: " + finances[minIndex][0] + " ($" + min + ")");
