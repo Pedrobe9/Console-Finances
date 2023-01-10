@@ -103,23 +103,24 @@ for (let i = 0; i < finances.length; i++) {
 console.log("Total amount of Profit/Losses is: $" + profitTotal);
 
 // calculate average of the changes in Profit/Losses over the entire period.
-// total change in profits are from month to month
+// total change in profits are from month to month.
 let profitMonthChange = [];
-profitMonthChange[0] = finances[0][1] - 0;
+//profitMonthChange[0] = finances[0][1] - 0; // First profit change, calculated as agreed during lesson.
 for (let i = 1; i < finances.length; i++) {
     profitMonthChange[i] = finances[i][1] - finances[i - 1][1];
 }
 // average of total change in profits from month to month.
 // loop over chnges in profit adding them
+// profitMonthChange[0] not included as it represent the profit but noy the change in profit.
 let profitChangeTotal = 0;
-for (let i = 0; i < finances.length; i++) {
+for (let i = 1; i < finances.length; i++) {
     profitChangeTotal += profitMonthChange[i];
 }
 
 
 // avarage of total change in profit:
 let profitChangeAverage = 0;
-profitChangeAverage = profitChangeTotal / finances.length;
+profitChangeAverage = profitChangeTotal / (finances.length - 1);
 console.log("Average of total change in profits from month to month: $" + profitChangeAverage.toFixed(2));
 // Calculate greatest increase in profits (date and amount) over the entire period.
 let max = profitMonthChange[1];
@@ -137,5 +138,8 @@ for (let i = 1; i < finances.length; i++) {
         minIndex = i;
     }
 }
+// Another form of calculating max and nin: Math.min(...array); Math.max(...array); (not used).
+
+// Presentation of data on the console:
 console.log("greatest increase in profits: " + finances[maxIndex][0] + " ($" + max + ")");
 console.log("greatest decrease in profits: " + finances[minIndex][0] + " ($" + min + ")");
